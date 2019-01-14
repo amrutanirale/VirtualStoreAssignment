@@ -9,8 +9,8 @@ public class ImageLoader : MonoBehaviour
 {
     string path;
     public RawImage image;
-    public GameObject cube;
-
+    public GameObject productPrefab;
+    public GameObject player;
     public void OpenFileExplorer()
     {
         path = EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
@@ -30,8 +30,9 @@ public class ImageLoader : MonoBehaviour
     {
         WWW www = new WWW("file:///" + path);
         image.texture = www.texture;
-        cube.GetComponent<MeshRenderer>().material.mainTexture = www.texture;
-
+        productPrefab.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = www.texture;
+        Instantiate(productPrefab, player.transform.position + (player.transform.forward * 2), player.transform.rotation);
+        
     }
 
 }
