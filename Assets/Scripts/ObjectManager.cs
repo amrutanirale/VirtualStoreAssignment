@@ -6,22 +6,24 @@ public class ObjectManager : MonoBehaviour
 {
     private Vector3 screenPoint;
     private Vector3 offset;
-    bool isClicked = false;
+    bool isObjectSelected = false;
     [SerializeField]
     private float rotationSpeed = 1f;
+    [SerializeField]
+    private GameObject helpText;
 
     void OnMouseDown()
     {
-        isClicked = true;
+        isObjectSelected = true;
+        helpText.SetActive(true);
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-
 
     }
     private void OnMouseUp()
     {
-        isClicked = false;
+        isObjectSelected = false;
+        helpText.SetActive(false);
     }
     void OnMouseDrag()
     {
@@ -32,17 +34,15 @@ public class ObjectManager : MonoBehaviour
 
     private void Update()
     {
-        if (isClicked == true)
+        if (isObjectSelected == true)
         {
             if (Input.GetKey(KeyCode.R))
             {
-                print("r");
                 transform.Rotate(Vector3.up * rotationSpeed);
             }
 
             if (Input.GetKey(KeyCode.T))
             {
-                print("t");
                 transform.Rotate(Vector3.down * rotationSpeed);
             }
         }

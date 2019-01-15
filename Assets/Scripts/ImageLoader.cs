@@ -4,20 +4,38 @@ using System.Collections;
 using System;
 using System.IO;
 using UnityEditor;
-
+using Crosstales.FB;
+//using SFB;
 public class ImageLoader : MonoBehaviour
 {
     string path;
     //public RawImage image;
     public GameObject productPrefab;
     public GameObject player;
+
+
     public void OpenFileExplorer()
     {
-        path = EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
+       // path = EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
+       // path = StandaloneFileBrowser.OpenFilePanel("Title", "", ".png", false);
+        //System.Diagnostics.Process.Start("explorer.exe", "/select," + path);
+
+        //if (path.Length > 0)
+        //{
+        //    StartCoroutine(OutputRoutine(new System.Uri(path[0]).AbsolutePath));
+        //}
+
+        path=FileBrowser.OpenSingleFile("Open File", "" , ".png");
         GetImage();
     }
 
-
+    private IEnumerator OutputRoutine(string url)
+    {
+        var loader = new WWW(url);
+        yield return loader;
+        productPrefab.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = loader.texture;
+        Instantiate(productPrefab, player.transform.position + (player.transform.forward * 2), player.transform.rotation);
+    }
     void GetImage()
     {
         if (path != null)
