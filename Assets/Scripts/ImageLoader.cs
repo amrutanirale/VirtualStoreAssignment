@@ -8,7 +8,7 @@ using UnityEditor;
 public class ImageLoader : MonoBehaviour
 {
     string path;
-    public RawImage image;
+    //public RawImage image;
     public GameObject productPrefab;
     public GameObject player;
     public void OpenFileExplorer()
@@ -29,7 +29,7 @@ public class ImageLoader : MonoBehaviour
     void UpdateImage()
     {
         WWW www = new WWW("file:///" + path);
-        image.texture = www.texture;
+        //image.texture = www.texture;
         productPrefab.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = www.texture;
         Instantiate(productPrefab, player.transform.position + (player.transform.forward * 2), player.transform.rotation);
         
