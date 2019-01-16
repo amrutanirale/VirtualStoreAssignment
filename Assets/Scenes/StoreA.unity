@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2915,7 +2915,6 @@ GameObject:
   - component: {fileID: 874405324}
   - component: {fileID: 874405323}
   - component: {fileID: 874405322}
-  - component: {fileID: 874405321}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2923,20 +2922,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &874405321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 874405320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a715a4931528f4c8878d0492359c65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  productPrefab: {fileID: 1913169070745220, guid: b82c6067c90ed9e46b189c00d43ecd62,
-    type: 2}
-  player: {fileID: 1644878509}
 --- !u!114 &874405322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3299,6 +3284,7 @@ GameObject:
   - component: {fileID: 1025844889}
   - component: {fileID: 1025844888}
   - component: {fileID: 1025844887}
+  - component: {fileID: 1025844890}
   m_Layer: 5
   m_Name: AddProductButton
   m_TagString: Untagged
@@ -3363,18 +3349,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1025844888}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 874405321}
-        m_MethodName: OpenFileExplorer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1025844888
@@ -3411,6 +3386,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1025844885}
   m_CullTransparentMesh: 0
+--- !u!114 &1025844890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1025844885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466cfcecebcbaf4caea98f2ed3e1f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productPrefab: {fileID: 1913169070745220, guid: b82c6067c90ed9e46b189c00d43ecd62,
+    type: 2}
+  player: {fileID: 1644878509}
 --- !u!1001 &1041801501
 Prefab:
   m_ObjectHideFlags: 0
