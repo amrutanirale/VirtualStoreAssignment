@@ -63,7 +63,8 @@ public class OpenFileSystem : MonoBehaviour, IPointerDownHandler
     {
         var loader = new WWW( url );
         yield return loader;
-        GameObject newProduct = Instantiate( productPrefab , player.transform.position + ( player.transform.forward * 2 ) , player.transform.rotation );
+
+        GameObject newProduct = Instantiate( productPrefab , player.transform.position + ( player.transform.forward * 1 ) , player.transform.rotation );
 
         newProduct.GetComponent<Renderer>().material.mainTexture = loader.texture;
     }

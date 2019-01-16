@@ -55,7 +55,8 @@ public class ImageLoader : MonoBehaviour
     {
         var loader = new WWW( url );
         yield return loader;
-        GameObject newProduct = Instantiate( productPrefab , player.transform.position + ( player.transform.forward * 2 ) , player.transform.rotation );
+        Vector3 instantiatePosition = new Vector3(player.transform.position.x, player.transform.position.y+5, player.transform.position.z +  2);
+        GameObject newProduct = Instantiate( productPrefab ,instantiatePosition, player.transform.rotation );
 
         newProduct.GetComponent<Renderer>().material.mainTexture = loader.texture;
     }
